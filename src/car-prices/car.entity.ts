@@ -9,15 +9,15 @@ export class Car {
     plate: string;
     @Column()
     carType: string
-    @Column()
+    @Column("decimal", { precision: 6, scale: 2 })
     basePrice: number
     @Column()
     numberOfDays: number;
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;
-    @Column({ nullable: true })
+    @Column("decimal", { precision: 6, scale: 2 })
     variablePrices: number
-    @Column()
+    @Column("decimal", { precision: 6, scale: 2 })
     totalToPay: number;
 
 
