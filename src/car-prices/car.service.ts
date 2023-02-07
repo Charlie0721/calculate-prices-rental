@@ -12,18 +12,30 @@ export class CarService {
     senData(car: CarDTO) {
         try {
 
-          const newCar= this.carRepository.create(car)  
-          return this.carRepository.save(newCar)
+            const newCar = this.carRepository.create(car)
+            return this.carRepository.save(newCar)
 
         } catch (error) {
             console.log(error)
         }
 
+    }
+    getDataByPlates(plate: string) {
+        try {
 
-
+            return this.carRepository.find({
+                where: {
+                    plate
+                }
+            })
+        } catch (error) {
+            console.log(error)
+        }
 
     }
+    getCars() {
+        return this.carRepository.find()
 
-
+    }
 
 }
